@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="Assets/script.js"></script>
+    <title>Fun Code Quiz!</title>
+
+<body class="body-style">
+    <div class="container">
+        <div id=question-box class="d-none">
+            <div id=question>Question</div>
+            <div id=answer-box class="btn-grid">
+            </div>
+        </div>
+        <div class="controller">
+            <button id="start-button" class="start-button btn btn-primary">Start the quiz!</button>
+            <button id="next-button" class="d-none next-button btn btn-primary">Next</button>
+        </div>
+    </div>
+</body>
+<footer class="page-footer bg-dark d-flex justify-content-center m-0 fixed-bottom">
+    <section class="timer-div">
+        <h3 class="timing">Time Remaining: </h3>
+        <h1 id="time-remaining" class="timing">100 seconds</h2>
+    </section class="timer-div">
+</footer>
+
+</html>

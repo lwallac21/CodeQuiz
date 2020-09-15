@@ -1,0 +1,65 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.body-style {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6962a3;
+}
+.container{
+    max-width: 80%;
+    background-color: darkgrey;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px 2px;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 15px;
+    margin: 20px 5px;
+}
+.btn.correct {
+    background-color: forestgreen;
+}
+
+.btn.wrong {
+    background-color: red;
+}
+
+.controller {
+    display: flex;
+    justify-content: center;
+}
+
+.timer-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 150px;
+
+}
+
+.timing {
+    color: white;
+    margin: 5px 5px;
+}
+
+#start-button{
+    font-size: 2rem;
+    padding: 20px 20px;
+}
+
+#next-button{
+    font-size: 2rem;
+    padding:20px 20px;
+}
+
+
