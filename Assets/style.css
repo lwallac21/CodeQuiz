@@ -26,11 +26,11 @@
     margin: 20px 5px;
 }
 .btn.correct {
-    background-color: forestgreen;
+    background-color: forestgreen !important;
 }
 
 .btn.wrong {
-    background-color: red;
+    background-color: red !important;
 }
 
 .controller {
