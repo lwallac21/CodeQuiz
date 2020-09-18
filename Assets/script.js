@@ -1,31 +1,34 @@
-const startButton = $("#start-button")
-const nextButton = $("#next-button")
-let shuffleQuestions, questionIndex
-const questionField = $("#question")
-const answersButtons = $("answer-box")
-let score = 0
-let timerCount = 0
-let timerPenalty
+const startButton = $("#start-button");
+const nextButton = $("#next-button");
+let shuffleQuestions, questionIndex;
+const questionField = $("#question");
+const answersButtons = $("answer-box");
+let score = "";
+let currentScore
+let timerCount
 
+let timerPenalty
+let currentTime
 
 
 startButton.on("click", startQuiz);
 nextButton.on("click", function(){
-    questionIndex++
-    showQuestion()
-})
+    initializeQuestion()
+});
+
 function startQuiz() {
-    quizTimer(timerCount)
+    quizTimer()
     $("#start-button").addClass("d-none");
     $("#question-box").removeClass("d-none");
     shuffleQuestions = questions.sort(() => Math.random() - .5);
     questionIndex = 0;
     nextQuestion();
-}
- function quizTimer(timerCount) {
-        timerCount = 100
+};
+ function quizTimer() {
+        timerCount = 100;
+        currentScore = score * timerCount;
         countDown = setInterval(function () {
-        timerCount = timerCount - 1;
+        timerCount --;
         if (timerCount <= 0) {
             clearInterval(countDown);
             alert("GAME OVER!");
@@ -61,24 +64,36 @@ function showQuestion(question) {
 
 function initializeQuestion() {
     nextButton.addClass("d-none")
+    questionIndex++
 }
 
 function selectAnswer(event) {
     let selectedAnswer = event.target;
     let rightAnswer = selectedAnswer.hasAttribute("dataset");
-    if (rightAnswer) {
-        selectedAnswer.addClass("btn-success");
-        score = score+10
-    }
-    else {
-        selectedAnswer.addClass("btn-warning");
-        timerCount = timerCount - 10
-    }
+    giveBtnClass(selectedAnswer, rightAnswer)
 console.log(score)
 
 }
 
-animals.rightAnswer.length(score)
+function giveBtnClass(element, correct) {
+    clearBtnClass(element)
+    nextButton.removeClass("d-none")
+    if (correct) {
+        element.classList.add("btn-success");
+        score = score +10
+    }
+    else {
+        element.classList.add("btn-danger");
+        timerCount-= 10
+    }
+
+}
+
+function clearBtnClass(element) {
+    element.classList.remove("btn-success");
+    element.classList.remove("btn-danger")
+}
+
 
 const questions = [
     {
