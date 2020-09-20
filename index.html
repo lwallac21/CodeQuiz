@@ -10,17 +10,22 @@
     <title>Fun Code Quiz!</title>
 
 <body class="body-style">
+
+
     <div class="container">
         <div id=question-box class="d-none">
             <div id=question>Question</div>
             <div id=answer-box class="btn-grid">
-
             </div>
         </div>
         <div class="controller">
             <button id="start-button" class="start-button btn btn-primary">Start the quiz!</button>
             <button id="next-button" class="d-none next-button btn btn-primary">Next</button>
         </div>
+        <div id="score-name" class="form-group d-flex justify-content-center mt-1">
+            <input id="player-name" type="text" placeholder="Enter your Name" name="">
+        </div>
+        
     </div>
 </body>
 <footer class="page-footer bg-dark d-flex justify-content-center m-0 fixed-bottom">
@@ -28,6 +33,10 @@
         <h3 class="timing">Time Remaining: </h3>
         <h1 id="time-remaining" class="timing">100 seconds</h2>
     </section class="timer-div">
+    <section>
+        <h3 >Current Score: </h3>
+        <h1 id="score-box"></h1>
+    </section>
 </footer>
 
 </html>
