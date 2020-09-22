@@ -85,7 +85,8 @@ function hideAll() {
     $("#question-box").addClass("d-none")
     $("next-button").addClass("d-none")
     $("#end-button").removeClass("d-none")
-    $("#controller").text("Your final score is " + currentScore)
+    $("#current-score").removeClass()
+    $("#current-score").addClass("d-none")
     clearInterval(countDown);
 }
 
@@ -109,6 +110,7 @@ function writeScore() {
         return `<li class="list-group-item">${score.name}-${score.score}</li>`
 
     }).join("");
+    scoresList.append("Your score: " + playerName + "-" + currentScore)
     
     
 }
@@ -146,8 +148,10 @@ function selectAnswer(event) {
     let selectedAnswer = event.target;
     let rightAnswer = selectedAnswer.hasAttribute("dataset");
     giveBtnClass(selectedAnswer, rightAnswer);
-    document.querySelector(".answerbtn").disabled = true;
-    
+    let clearBtn = document.querySelectorAll(".answerbtn")
+    for (i=0;i<clearBtn.length;i++) {
+        clearBtn[i].disabled = true;
+    }
 };
 
 //changes classes to show correct, adds score
@@ -162,7 +166,7 @@ function giveBtnClass(element, correct) {
         element.classList.add("btn-danger");
         timerCount -= 10
     }
-
+    
 }
 // gets rid of correct and wrong button classes
 function clearBtnClass(element) {
@@ -210,39 +214,39 @@ const questions = [
         ]
     },
     {
-        question: "Is Lawrence good at Javascript coding",
+        question: "Why did the creators of Javascript say they called the language 'Javascript'?",
         answers: [
-            { text: "yes, very good", correct: false },
-            { text: "yes somewhat good", correct: false },
-            { text: "no, very bad", correct: true },
-            { text: "when he puts his mind to it.", correct: false },
+            { text: "It is related to Java", correct: false },
+            { text: "It was their last name", correct: false },
+            { text: "They named all languages after coffee at the time", correct: true },
+            { text: "No particular reason", correct: false },
         ]
     },
     {
-        question: "What is the Jquery selector key symbol?",
+        question: "What attribute is used to link to an external Javascript file?",
         answers: [
-            { text: '$', correct: true },
-            { text: "#", correct: false },
-            { text: "?", correct: false },
-            { text: "+", correct: false },
+            { text: 'href', correct: false },
+            { text: "rel", correct: false },
+            { text: "src", correct: true },
+            { text: "type", correct: false },
         ]
     },
     {
-        question: "What is the Jquery selector key symbol?",
+        question: "What year was Javascript invented?",
         answers: [
-            { text: '$', correct: true },
-            { text: "#", correct: false },
-            { text: "?", correct: false },
-            { text: "+", correct: false },
+            { text: '1995', correct: true },
+            { text: "2000", correct: false },
+            { text: "2004", correct: false },
+            { text: "2009", correct: false },
         ]
     },
     {
         question: "What does JSON stand for?",
         answers: [
-            { text: 'JavaScript Object Notation', correct: true },
             { text: "Java Object Notation", correct: false },
             { text: "Just start object now", correct: false },
             { text: "Jason Statham's Oscar Nomination", correct: false },
+            { text: 'JavaScript Object Notation', correct: true }
         ]
     },
     {
